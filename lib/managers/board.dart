@@ -16,7 +16,7 @@ class BoardManager extends StateNotifier<Board> {
   // which will allow us to reuse most of the logic.
   final verticalOrder = [12, 8, 4, 0, 13, 9, 5, 1, 14, 10, 6, 2, 15, 11, 7, 3];
 
-  final StateNotifierProviderRef ref;
+  final Ref ref;
   BoardManager(this.ref) : super(Board.newGame(0, [])) {
     //Load the last saved state or start a new game.
     load();
@@ -36,9 +36,10 @@ class BoardManager extends StateNotifier<Board> {
   int maxScore() {
     return state.score > state.best ? state.score : state.best;
   }
+
   // Create New Game state.
   Board _newGame() {
-    return Board.newGame( maxScore(), [random([])]);
+    return Board.newGame(maxScore(), [random([])]);
   }
 
   // Start New Game
@@ -288,16 +289,17 @@ class BoardManager extends StateNotifier<Board> {
     }
   }
 
-  //Move the tiles using the arrow keys on the keyboard.
-  bool onKey(RawKeyEvent event) {
+  // Move the tiles using the arrow keys on the keyboard.
+  bool onKey(KeyEvent event) {
     SwipeDirection? direction;
-    if (event.isKeyPressed(LogicalKeyboardKey.arrowRight)) {
+
+    if (event.logicalKey == LogicalKeyboardKey.arrowRight) {
       direction = SwipeDirection.right;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowLeft)) {
+    } else if (event.logicalKey == LogicalKeyboardKey.arrowLeft) {
       direction = SwipeDirection.left;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowUp)) {
+    } else if (event.logicalKey == LogicalKeyboardKey.arrowUp) {
       direction = SwipeDirection.up;
-    } else if (event.isKeyPressed(LogicalKeyboardKey.arrowDown)) {
+    } else if (event.logicalKey == LogicalKeyboardKey.arrowDown) {
       direction = SwipeDirection.down;
     }
 

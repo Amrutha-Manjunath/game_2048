@@ -57,7 +57,7 @@ class TileBoardWidget extends ConsumerWidget {
                   style: TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 24.0,
-                      color: tile.value < 8 ? textColor : textColorWhite),
+                      color: tile.value < 16 ? textColor : textColorWhite),
                 )),
               ),
             );

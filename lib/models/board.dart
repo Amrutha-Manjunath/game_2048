@@ -19,10 +19,11 @@ class Board {
   //Keeps the previous round board state used for the undo functionality
   final Board? undo;
 
+  //Main constructor
   Board(this.score, this.best, this.tiles,
       {this.over = false, this.won = false, this.undo});
 
-  //Create a model for a new game.
+  //Constructor for a new game (score is 0, game is not won/over, undo is null)
   Board.newGame(this.best, this.tiles)
       : score = 0,
         over = false,

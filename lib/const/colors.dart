@@ -7,7 +7,7 @@ const boardColor = Color(0xFF495054);
 const emptyTileColor = Color(0xFFBCCAD0);
 const buttonColor = Color(0xFF0B76A0);
 const scoreColor = Color(0xFF631E50);
-const overlayColor = Color(0xFF61CBF4);
+const overlayColor = Color(0x4461CBF4);
 
 const color2 = Color(0xFFF4E604);
 const color4 = Color(0xFFBFAD03);

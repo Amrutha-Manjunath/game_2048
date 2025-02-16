@@ -50,6 +50,7 @@ dependencies:
 
   # Used together with json_serializable to generate fromJson/toJson functions
   json_annotation: ^4.8.1
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +79,14 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/logo.png
+
+flutter_native_splash:
+  color: "#FFFFFF"  # Background color for splash screen
+  image: assets/logo.png  # Path to your logo image
+  android: true  # Enable for Android
+  ios: true  # Enable for iOS
 
   # To add assets to your application, add an assets section, like this:
   # assets:

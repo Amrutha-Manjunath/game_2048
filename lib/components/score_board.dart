@@ -15,12 +15,12 @@ class ScoreBoard extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Score(label: 'Score', score: '$score'),
+        Score(label: 'Current\nScore', score: '$score'),
         const SizedBox(
           width: 8.0,
         ),
         Score(
-            label: 'Best',
+            label: 'Best\nScore',
             score: '$best',
             padding:
                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)),
@@ -47,10 +47,12 @@ class Score extends StatelessWidget {
       child: Column(children: [
         Text(
           label.toUpperCase(),
+          textAlign: TextAlign.center,
           style: const TextStyle(fontSize: 18.0, color: color2),
         ),
         Text(
           score,
+          textAlign: TextAlign.center,
           style: const TextStyle(
               color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18.0),
         )

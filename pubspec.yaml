@@ -80,11 +80,11 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - assets/logo.png
+    - assets/logo2048.png
 
 flutter_native_splash:
   color: "#FFFFFF"  # Background color for splash screen
-  image: assets/logo.png  # Path to your logo image
+  image: assets/logo2048.png  # Path to your logo image
   android: true  # Enable for Android
   ios: true  # Enable for iOS
 

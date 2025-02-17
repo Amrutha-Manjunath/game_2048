@@ -68,6 +68,8 @@ dev_dependencies:
 
   # Used together with json_serializable to generate fromJson/toJson functions
   json_serializable: ^6.7.1
+
+  flutter_launcher_icons: "^0.14.3"
   
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -84,9 +86,14 @@ flutter:
 
 flutter_native_splash:
   color: "#FFFFFF"  # Background color for splash screen
-  image: assets/logo2048.png  # Path to your logo image
+  image: "assets/logo2048.png"  # Path to your logo image
   android: true  # Enable for Android
   ios: true  # Enable for iOS
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/app_icon.png"
 
   # To add assets to your application, add an assets section, like this:
   # assets:

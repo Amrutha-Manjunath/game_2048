@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 import 'components/button.dart';
 import 'components/empty_board.dart';
@@ -63,6 +64,12 @@ class _GameState extends ConsumerState<Game>
     // Add an Observer for the Lifecycles of the App
     WidgetsBinding.instance.addObserver(this);
     super.initState();
+    initialization();
+  }
+
+  void initialization() async {
+    await Future.delayed(const Duration(seconds: 2));
+    FlutterNativeSplash.remove();
   }
 
   @override
@@ -98,7 +105,7 @@ class _GameState extends ConsumerState<Game>
                       style: TextStyle(
                           color: color2048,
                           fontWeight: FontWeight.bold,
-                          fontSize: 64.0),
+                          fontSize: 52.0),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

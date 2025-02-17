@@ -15,12 +15,12 @@ class ScoreBoard extends ConsumerWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Score(label: 'Current\nScore', score: '$score'),
+        Score(label: 'Score', score: '$score'),
         const SizedBox(
           width: 8.0,
         ),
         Score(
-            label: 'Best\nScore',
+            label: 'Best',
             score: '$best',
             padding:
                 const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0)),

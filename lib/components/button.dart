@@ -32,11 +32,14 @@ class ButtonWidget extends ConsumerWidget {
         style: ButtonStyle(
             padding:
                 WidgetStateProperty.all<EdgeInsets>(const EdgeInsets.all(16.0)),
-            backgroundColor: WidgetStateProperty.all<Color>(buttonColor)),
+            backgroundColor: WidgetStateProperty.all<Color>(scoreColor)),
         onPressed: onPressed,
         child: Text(
           text!,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
+          style: const TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 18.0,
+              color: textColorWhite),
         ));
   }
 }

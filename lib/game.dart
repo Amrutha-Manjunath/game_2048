@@ -96,9 +96,9 @@ class _GameState extends ConsumerState<Game>
                     const Text(
                       '2048',
                       style: TextStyle(
-                          color: textColor,
+                          color: color2048,
                           fontWeight: FontWeight.bold,
-                          fontSize: 52.0),
+                          fontSize: 64.0),
                     ),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

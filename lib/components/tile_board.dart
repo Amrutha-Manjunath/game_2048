@@ -72,7 +72,7 @@ class TileBoardWidget extends ConsumerWidget {
                   Text(
                     board.won ? 'You win!' : 'Game over!',
                     style: const TextStyle(
-                        color: textColor,
+                        color: scoreColor,
                         fontWeight: FontWeight.bold,
                         fontSize: 64.0),
                   ),

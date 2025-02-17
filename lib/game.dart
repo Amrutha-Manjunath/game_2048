@@ -21,7 +21,7 @@ class _GameState extends ConsumerState<Game>
     with TickerProviderStateMixin, WidgetsBindingObserver {
   // The controller used to move the tiles
   late final AnimationController _moveController = AnimationController(
-    duration: const Duration(milliseconds: 100),
+    duration: const Duration(milliseconds: 300),
     vsync: this,
   )..addStatusListener((status) {
       // When the movement finishes, merge the tiles and start the scale animation which gives the pop effect.
@@ -39,7 +39,7 @@ class _GameState extends ConsumerState<Game>
 
   // The controller used to show a popup effect when the tiles get merged
   late final AnimationController _scaleController = AnimationController(
-    duration: const Duration(milliseconds: 200),
+    duration: const Duration(milliseconds: 300),
     vsync: this,
   )..addStatusListener((status) {
       // When the scale animation finishes, end the round and if there is a queued movement, start the move controller again for the next direction.

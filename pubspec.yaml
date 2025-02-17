@@ -52,6 +52,9 @@ dependencies:
   json_annotation: ^4.8.1
   flutter_native_splash: ^2.4.4
 
+  # Used to play  audio files, works for Android, iOS, Linux, macOS, Windows, and web
+  audioplayers: ^6.1.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -83,12 +86,22 @@ flutter:
   uses-material-design: true
   assets:
     - assets/logo2048.png
+    - assets/sounds/merge_sound.wav
 
 flutter_native_splash:
-  color: "#FFFFFF"  # Background color for splash screen
-  image: "assets/logo2048.png"  # Path to your logo image
+  color: "#ffffff"  # Background color for splash screen
+  color_dark: "#ffffff" # Background color for splash screen in dark mode
+  image: assets/logo2048.png  # Path to logo image
   android: true  # Enable for Android
   ios: true  # Enable for iOS
+  color_android: "#ffffff"
+  color_dark_android: "#ffffff"
+  android_12:
+    image: assets/logo2048.png
+    color: "#ffffff"
+    color_dark: "#ffffff"
+    icon_background_color: "#ffffff"
+    icon_background_color_dark: "#ffffff"
 
 flutter_launcher_icons:
   android: true

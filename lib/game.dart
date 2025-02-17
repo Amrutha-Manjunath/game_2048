@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_swipe_detector/flutter_swipe_detector.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 import 'components/button.dart';
 import 'components/empty_board.dart';
@@ -19,6 +19,8 @@ class Game extends ConsumerStatefulWidget {
 
 class _GameState extends ConsumerState<Game>
     with TickerProviderStateMixin, WidgetsBindingObserver {
+  late final AudioPlayer _audioPlayer;
+
   // The controller used to move the tiles
   late final AnimationController _moveController = AnimationController(
     duration: const Duration(milliseconds: 300),
@@ -26,7 +28,11 @@ class _GameState extends ConsumerState<Game>
   )..addStatusListener((status) {
       // When the movement finishes, merge the tiles and start the scale animation which gives the pop effect.
       if (status == AnimationStatus.completed) {
-        ref.read(boardManager.notifier).merge();
+        bool merged =
+            ref.read(boardManager.notifier).merge(); // Capture return value
+        if (merged) {
+          _playMergeSound(); // Play sound only if a merge happened
+        }
         _scaleController.forward(from: 0.0);
       }
     });
@@ -63,13 +69,12 @@ class _GameState extends ConsumerState<Game>
   void initState() {
     // Add an Observer for the Lifecycles of the App
     WidgetsBinding.instance.addObserver(this);
+    _audioPlayer = AudioPlayer();
     super.initState();
-    initialization();
   }
 
-  void initialization() async {
-    await Future.delayed(const Duration(seconds: 2));
-    FlutterNativeSplash.remove();
+  Future<void> _playMergeSound() async {
+    await _audioPlayer.play(AssetSource('sounds/merge_sound.wav'));
   }
 
   @override
@@ -179,6 +184,7 @@ class _GameState extends ConsumerState<Game>
     _moveController.dispose();
     _scaleController.dispose();
     _focusNode.dispose(); // Dispose the FocusNode
+    _audioPlayer.dispose(); // Dispose the AudioPlayer
     super.dispose();
   }
 }

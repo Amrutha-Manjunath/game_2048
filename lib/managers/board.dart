@@ -152,9 +152,10 @@ class BoardManager extends StateNotifier<Board> {
   }
 
   //Merge tiles
-  void merge() {
+  bool merge() {
     List<Tile> tiles = [];
     var tilesMoved = false;
+    var tilesMerged = false;
     List<int> indexes = [];
     var score = state.score;
 
@@ -170,6 +171,7 @@ class BoardManager extends StateNotifier<Board> {
             tile.index == next.nextIndex && tile.nextIndex == null) {
           value = tile.value + next.value;
           merged = true;
+          tilesMerged = true;
           score += tile.value;
           i += 1;
         }
@@ -192,6 +194,8 @@ class BoardManager extends StateNotifier<Board> {
       tiles.add(random(indexes));
     }
     state = state.copyWith(score: score, tiles: tiles);
+
+    return tilesMerged;
   }
 
   //Finish round, win or loose the game.

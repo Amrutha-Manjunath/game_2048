@@ -22,6 +22,12 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(BoardAdapter());
 
+  // Simulate app initialization delay (e.g., loading resources, user preferences)
+  await Future.delayed(const Duration(seconds: 2));
+
+  // Remove splash screen after initialization
+  FlutterNativeSplash.remove();
+
   // Wraps the app with Riverpod's provider scope, allowing global state management
   runApp(const ProviderScope(
     child: MaterialApp(
